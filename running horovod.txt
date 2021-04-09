@@ -1,0 +1,253 @@
+#include <mpi.h>
+#include <stdio.h>
+
+int main(int argc, char** argv) {
+    // Initialize the MPI environment
+    MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+
+    // Get the rank of the process
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
+    // Get the name of the processor
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(processor_name, &name_len);
+
+    // Print off a hello world message
+    printf("Hello world from processor %s, rank %d out of %d processors\n",
+           processor_name, world_rank, world_size);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+
+
+
+ mpirun -np 16 -H r-001:8,r-002:8 -bind-to none -map-by slot -x LD_LIBRARY_PATH python Project/Horovod\ KMea
+ 
+ 
+ 
+#########2 node runs 
+
+2 trees 
+
+rank is :  0 indices   124379
+rank is :  1 indices   124379
+juggled up :  0 rank:   1
+computation time 236.53525924682617 rank 1
+juggled up :  0 rank:   0
+Shape is :  (1713758, 2)
+accuracy is : 0.8383997839457549
+computation time 277.5390148162842 rank 0
+
+
+
+
+
+10 trees 5 and 5 on each nodes
+
+
+
+juggled up :  0 rank:   3
+computation time 342.9126217365265 rank 3
+juggled up :  0 rank:   2
+computation time 342.91251969337463 rank 2
+juggled up :  0 rank:   8
+computation time 343.0407736301422 rank 8
+juggled up :  0 rank:   9
+computation time 342.88761806488037 rank 9
+juggled up :  0 rank:   0
+Shape is :  (1713758, 10)
+juggled up :  0 rank:   1
+computation time 342.9190192222595 rank 1
+juggled up :  0 rank:   4
+computation time 342.9229381084442 rank 4
+juggled up :  0 rank:   7
+computation time 342.8959698677063 rank 7
+juggled up :  0 rank:   6
+computation time 342.9032735824585 rank 6
+juggled up :  0 rank:   5
+computation time 343.0642566680908 rank 5
+accuracy is : 0.8390124392327107
+computation time 397.0367977619171 rank 0
+
+
+
+15 trees 7 and 8:
+
+
+computation time 389.19915533065796 rank 11
+computation time 389.911958694458 rank 2
+computation time 389.9099338054657 rank 3
+computation time 389.4021677970886 rank 12
+computation time 389.4036729335785 rank 10
+computation time 389.91953110694885 rank 1
+computation time 389.16151571273804 rank 13
+computation time 389.92209458351135 rank 4
+computation time 389.30696630477905 rank 9
+computation time 389.41820549964905 rank 14
+computation time 389.4208810329437 rank 8
+Shape is :  (1713758, 15)
+computation time 389.9259989261627 rank 5
+computation time 389.4202551841736 rank 7
+computation time 389.93754959106445 rank 6
+accuracy is : 0.8413329783485874
+computation time 431.9402828216553 rank 0
+
+
+20 trees 10 each
+
+computation time 480.9760899543762 rank 14
+computation time 480.99149227142334 rank 13
+computation time 480.90187549591064 rank 11
+computation time 480.99668431282043 rank 12
+computation time 480.98789143562317 rank 4
+computation time 480.98788237571716 rank 3
+computation time 480.98675990104675 rank 5
+computation time 480.98887181282043 rank 6
+computation time 481.00211238861084 rank 16
+computation time 480.99804067611694 rank 15
+computation time 480.98626232147217 rank 1
+computation time 480.98511600494385 rank 2
+computation time 480.99942326545715 rank 17
+computation time 481.0069320201874 rank 18
+computation time 480.8020393848419 rank 9
+computation time 481.00502705574036 rank 10
+computation time 481.0042872428894 rank 19
+Shape is :  (1713758, 20)
+computation time 480.9935669898987 rank 8
+computation time 480.9926424026489 rank 7
+accuracy is : 0.8413329783485874
+computation time 522.5658750534058 rank 0
+
+30 trees 15 each:
+
+computation time 667.6844389438629 rank 1
+computation time 671.1554510593414 rank 27
+computation time 671.1850206851959 rank 26
+computation time 671.1787855625153 rank 29
+computation time 671.1851336956024 rank 28
+Shape is :  (1713758, 30)
+computation time 671.1687026023865 rank 22
+computation time 671.1752943992615 rank 23
+computation time 667.6679120063782 rank 7
+computation time 667.697104215622 rank 6
+computation time 671.1808779239655 rank 25
+computation time 671.1644561290741 rank 24
+computation time 667.690753698349 rank 3
+computation time 667.6722040176392 rank 2
+computation time 667.6748051643372 rank 4
+computation time 667.7005085945129 rank 5
+computation time 667.6951973438263 rank 9
+computation time 667.6787519454956 rank 8
+computation time 671.1818287372589 rank 19
+computation time 671.1891560554504 rank 18
+computation time 671.1852650642395 rank 20
+computation time 671.2157437801361 rank 21
+computation time 667.6996746063232 rank 13
+computation time 667.7093379497528 rank 12
+computation time 671.1915798187256 rank 17
+computation time 671.1855475902557 rank 16
+computation time 667.7185208797455 rank 11
+computation time 667.7031416893005 rank 10
+computation time 667.7164916992188 rank 14
+computation time 671.2105042934418 rank 15
+accuracy is : 0.8413329783485874
+computation time 709.3892495632172 rank 0
+
+
+
+
+
+
+
+#### SIngle nodes
+
+
+2 Trees
+
+
+
+rank is :  1 indices   3247665
+rank is :  0 indices   3247665
+computation time 233.98428916931152 rank 1
+Shape is :  (1713758, 2)
+accuracy is : 0.8388838305737413
+computation time 275.50094389915466 rank 0
+
+
+5 trees
+
+rank is :  1 indices   2448822
+rank is :  3 indices   2448822
+rank is :  2 indices   2448822
+rank is :  0 indices   2448822
+rank is :  4 indices   2448822
+computation time 292.7333416938782 rank 2
+computation time 292.6474690437317 rank 4
+Shape is :  (1713758, 5)
+computation time 292.7431170940399 rank 3
+computation time 292.74290657043457 rank 1
+accuracy is : 0.8406054645120316
+computation time 337.9579756259918 rank 0
+
+
+10 Trees
+
+rank is :  6 indices   482913
+rank is :  4 indices   482913
+rank is :  3 indices   482913
+rank is :  0 indices   482913
+rank is :  5 indices   482913
+rank is :  7 indices   482913
+rank is :  8 indices   482913
+rank is :  1 indices   482913
+rank is :  9 indices   482913
+computation time 376.3283681869507 rank 9
+computation time 376.10882019996643 rank 8
+computation time 376.4837486743927 rank 3
+computation time 376.4836127758026 rank 2
+computation time 376.58226704597473 rank 4
+computation time 376.33796882629395 rank 5
+computation time 376.2306079864502 rank 6
+computation time 376.4413585662842 rank 7
+computation time 376.5834815502167 rank 1
+Shape is :  (1713758, 10)
+accuracy is : 0.8413329783485874
+computation time 416.8313307762146 rank 0
+
+
+15 trees
+
+
+computation time 489.4216516017914 rank 13
+computation time 489.3578908443451 rank 12
+computation time 489.9084153175354 rank 1
+computation time 489.2704610824585 rank 14
+computation time 489.81735587120056 rank 2
+Shape is :  (1713758, 15)
+computation time 489.6806583404541 rank 11
+computation time 489.8094470500946 rank 3
+computation time 489.68686413764954 rank 10
+computation time 489.9247725009918 rank 4
+computation time 489.7406725883484 rank 9
+computation time 489.9311742782593 rank 5
+computation time 489.6941819190979 rank 8
+computation time 489.7500567436218 rank 7
+computation time 489.83856534957886 rank 6
+accuracy is : 0.8413329783485874
+computation time 532.2506816387177 rank 0
+
+
+
+
+
+
+
+
+
