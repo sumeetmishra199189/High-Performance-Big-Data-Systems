@@ -1,0 +1,46 @@
+All Reduce
+
+Mapper 1
+MSE : 28.120108415198082
+Compute Time : 497
+Comm Time : 1
+Total Threads: 4
+
+Mapper 2
+MSE : 28.850412161328165
+Compute Time : 487
+Comm Time : 1243
+Total Threads: 8
+
+Mapper 3
+MSE : 28.857741904179928
+Compute Time : 516
+Comm Time : 3009
+Total Threads: 12
+
+Mapper 4
+MSE : 28.847863218130843
+Compute Time : 515
+Comm Time : 3028
+Total Threads: 16
+
+Regroup-AllGather
+Mapper 4
+MSE : 28.78787749798825
+Compute Time : 530
+Comm Time : 2981
+Total Threads: 16
+
+Broadcast-Reduce
+Mapper 4
+MSE : 28.87538239650976
+Compute Time : 549
+Comm Time : 1870
+Total Threads: 16
+
+Push-Pull
+Mapper 4
+MSE : 28.840057231190148
+Compute Time : 568
+Comm Time : 2906
+Total Threads: 16

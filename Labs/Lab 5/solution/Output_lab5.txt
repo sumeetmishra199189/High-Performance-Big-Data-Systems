@@ -1,0 +1,79 @@
+With Static Scheduler
+===================
+
+MSE : 28.43019567902242
+Compute Time : 26540
+Comm Time : 2
+Total Threads: 1
+
+
+
+MSE : 28.425900459891878
+Compute Time : 14250
+Comm Time : 2
+Total Threads: 2
+
+
+
+MSE : 28.429524899786312
+Compute Time : 7274
+Comm Time : 1
+Total Threads: 4
+
+
+MSE : 28.430049309969643
+Compute Time : 24186
+Comm Time : 1
+Total Threads: 8
+
+
+MSE : 28.42484995544654
+Compute Time : 24331
+Comm Time : 1
+Total Threads: 16
+
+
+With Dynamic Scheduler
+========================
+
+MSE : 28.423435117467996
+Compute Time : 27727
+Comm Time : 0
+Total Threads: 1
+
+MSE : 28.425384375896844
+Compute Time : 16968
+Comm Time : 2
+Total Threads: 2
+
+MSE : 28.42443159595429
+Compute Time : 15541
+Comm Time : 3
+Total Threads: 4
+
+MSE : 28.421309016674027
+Compute Time : 18239
+Comm Time : 1
+Total Threads: 8
+
+MSE : 28.423276063985075
+Compute Time : 31297
+Comm Time : 1
+Total Threads: 16
+
+
+Harp-DAAL-Kmeans
+=========================================
+Compute Time : 815
+Comm Time : 97
+Using Thread : 4
+
+
+Compute Time : 558
+Comm Time : 166
+Using Thread : 8
+
+
+Compute Time : 443
+Comm Time : 255
+Using Thread : 16
